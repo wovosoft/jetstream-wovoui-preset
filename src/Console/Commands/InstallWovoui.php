@@ -36,6 +36,7 @@ class InstallWovoui extends Command
             "resources" => $sourcePath . "resources",
             "routes"    => $sourcePath . "routes",
             "public"    => $sourcePath . "public",
+            "database"  => $sourcePath . "database",
             "."         => [
                 $sourcePath . "tailwind.config.js",
                 $sourcePath . "tsconfig.json",
