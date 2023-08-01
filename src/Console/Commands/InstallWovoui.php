@@ -42,6 +42,7 @@ class InstallWovoui extends Command
                 $sourcePath . "tsconfig.json",
                 $sourcePath . "vite.config.ts",
                 $sourcePath . "package.json",
+                $sourcePath . "postcss.config.js",
             ],
         ])->each(function (string|array $source, string $target) {
             if (is_string($source)) {
