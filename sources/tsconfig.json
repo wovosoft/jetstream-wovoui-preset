@@ -1,0 +1,36 @@
+/// <reference types="vite/client" />
+{
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "module": "esnext",
+        "target": "esnext",
+        "sourceMap": true,
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "jsx": "preserve",
+        "types": [
+            "vite/client"
+        ],
+        "rootDirs": [
+            "resources/js"
+        ],
+        "typeRoots": [
+            "resources/js/types",
+            "resources/js/models"
+        ],
+        "paths": {
+            "@/*": [
+                "resources/js/*"
+            ]
+        }
+    },
+    "include": [
+        "resources/js/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "public"
+    ]
+}

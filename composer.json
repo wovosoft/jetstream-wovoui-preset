@@ -1,0 +1,34 @@
+{
+    "name": "wovosoft/jetstream-wovoui-preset",
+    "description": ":package_description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Author Name",
+            "email": "author@email.com",
+            "homepage": "http://author.com"
+        }
+    ],
+    "homepage": "https://github.com/wovosoft/jetstream-wovoui-preset",
+    "keywords": ["Laravel", "JetstreamWovouiPreset"],
+    "autoload": {
+        "psr-4": {
+            "Wovosoft\\JetstreamWovouiPreset\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wovosoft\\JetstreamWovouiPreset\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wovosoft\\JetstreamWovouiPreset\\JetstreamWovouiPresetServiceProvider"
+            ],
+            "aliases": {
+                "JetstreamWovouiPreset": "Wovosoft\\JetstreamWovouiPreset\\Facades\\JetstreamWovouiPreset"
+            }
+        }
+    }
+}

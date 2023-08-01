@@ -1,0 +1,35 @@
+{
+  "name": "laravel-wovoui-frontend",
+  "version": "1.0.0",
+  "description": "Laravel wovoui Vue 3 frontend preset",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Laravel",
+    "wovoui",
+    "Vue",
+    "3"
+  ],
+  "author": "Narayan Adhikary",
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/wovosoft/laravel-wovoui-preset.git"
+  },
+  "devDependencies": {
+    "@inertiajs/vue3": "^1.0.0",
+    "@types/ziggy-js": "^1.3.2",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "autoprefixer": "^10.4.12",
+    "axios": "^1.1.2",
+    "laravel-vite-plugin": "^0.7.7",
+    "postcss": "^8.4.18",
+    "vite": "^4.0.0",
+    "vue": "^3.2.41"
+  },
+  "dependencies": {
+    "@wovosoft/wovoui": "^0.4.43",
+    "ziggy-js": "^1.6.0"
+  }
+}
