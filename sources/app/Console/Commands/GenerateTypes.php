@@ -27,12 +27,12 @@ class GenerateTypes extends Command
     public function handle(): void
     {
         $dirs = [
-            "models"               => app_path("Models"),
-            "hrmPerson"            => base_path("packages/wovosoft/hrms-person/src/Models"),
-            "bkbHrmsCore"          => base_path("packages/wovosoft/bkb-hrms-core/src/Models"),
-            "bdAcademicComponents" => base_path("packages/wovosoft/bd-academic-components/src/Models"),
-            "bkbOffices"           => base_path("vendor/wovosoft/bkb-offices/src/Models"),
-            "bd-geocode"           => base_path("vendor/wovosoft/bd-geocode/src/Models"),
+            "models" => app_path("Models"),
+//            "hrmPerson"            => base_path("packages/wovosoft/hrms-person/src/Models"),
+//            "bkbHrmsCore"          => base_path("packages/wovosoft/bkb-hrms-core/src/Models"),
+//            "bdAcademicComponents" => base_path("packages/wovosoft/bd-academic-components/src/Models"),
+//            "bkbOffices"           => base_path("vendor/wovosoft/bkb-offices/src/Models"),
+//            "bd-geocode"           => base_path("vendor/wovosoft/bd-geocode/src/Models"),
         ];
 
         foreach ($dirs as $name => $dir) {

@@ -38,6 +38,7 @@ class InstallWovoui extends Command
                 $sourcePath . "tailwind.config.js",
                 $sourcePath . "tsconfig.json",
                 $sourcePath . "vite.config.ts",
+                $sourcePath . "package.json",
             ],
         ])->each(function (string|array $source, string $target) {
             if (is_string($source)) {

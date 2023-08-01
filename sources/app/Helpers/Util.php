@@ -17,40 +17,6 @@ class Util
         return config("database.default") === "pgsql" ? "ilike" : "like";
     }
 
-    public static function districtReplace(string $district): string
-    {
-        $parts = explode("-", $district);
-
-        if (trim(strtolower($district)) === "comilla") {
-            return "CUMILLA";
-        }
-
-        if (str($district)->is("*PATIA") || str($district)->is("*PATIYA")) {
-            $parts[2] = "CHATTOGRAM";
-            return str(join("-", $parts))->replace("PATIA", "PATIYA")->value();
-        }
-
-        if (str($district)->is("*LAKSAM")) {
-            $parts[2] = "CUMILLA";
-            return join("-", $parts);
-        }
-
-        $values = [
-            'KHAGRACHARI' => 'KHAGRACHHARI',
-            'JHALAKATHI'  => 'JHALOKATI',
-            'HOBIGANJ'    => 'HABIGANJ',
-            'BARISAL'     => 'BARISHAL',
-            "COXSBAZAR"   => "COX'S BAZAR"
-        ];
-
-        foreach (array_keys($values) as $key) {
-            if (str($district)->is("*$key")) {
-                return str($district)->replace($key, $values[$key])->value();
-            }
-        }
-        return $district;
-    }
-
     public static function updateEnumValues(string $table, string $column, array $values): bool|string
     {
         try {
