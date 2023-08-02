@@ -28,7 +28,6 @@ defineProps({
         <TwoFactorAuthenticationForm
             v-if="$page.props.jetstream.canManageTwoFactorAuthentication"
             :requires-confirmation="confirmsTwoFactorAuthentication"
-            class="mt-10 sm:mt-0"
         />
 
         <LogoutOtherBrowserSessionsForm

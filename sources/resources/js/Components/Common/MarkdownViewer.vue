@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import MarkdownIt from "markdown-it";
+import {PropType} from "vue";
 
 const props = defineProps({
-    content: String
+    content: String as PropType<string>
 });
 
 const md = new MarkdownIt();

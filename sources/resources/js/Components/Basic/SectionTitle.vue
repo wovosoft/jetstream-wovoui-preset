@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-6 col-sm-12">
+    <Col :md="6" :sm="12">
         <div class="px-4 sm:px-0">
             <h3 class="text-lg font-medium text-gray-900">
                 <slot name="title" />
@@ -13,5 +13,8 @@
         <div class="px-4 sm:px-0">
             <slot name="aside" />
         </div>
-    </div>
+    </Col>
 </template>
+<script setup lang="ts">
+import {Col} from "@wovosoft/wovoui";
+</script>

@@ -5,10 +5,11 @@ import AuthenticationCardLogo from '@/Components/Basic/AuthenticationCardLogo.vu
 
 import route from "ziggy-js";
 import {Button, Feedback, FormGroup, Input} from "@wovosoft/wovoui";
+import {PropType} from "vue";
 
 const props = defineProps({
-    email: String,
-    token: String,
+    email: String as PropType<string>,
+    token: String as PropType<string>,
 });
 
 const form = useForm({
@@ -28,7 +29,7 @@ const submit = () => {
 <template>
     <Head title="Reset Password"/>
 
-    <AuthenticationCard>
+    <AuthenticationCard title="Reset Password">
         <template #logo>
             <AuthenticationCardLogo/>
         </template>
@@ -39,12 +40,11 @@ const submit = () => {
                     id="email"
                     v-model="form.email"
                     type="email"
-                    class="mt-1 block w-full"
                     required
                     autofocus
                     :class="{'is-invalid':!!form.errors.email}"
                 />
-                <Feedback type="invalid" class="mt-2" :message="form.errors.email"/>
+                <Feedback type="invalid" :message="form.errors.email"/>
             </FormGroup>
 
             <FormGroup :label="$t('general.password')">
@@ -52,7 +52,6 @@ const submit = () => {
                     id="password"
                     v-model="form.password"
                     type="password"
-                    class="mt-1 block w-full"
                     required
                     autocomplete="new-password"
                     :class="{'is-invalid':!!form.errors.password}"
@@ -65,12 +64,11 @@ const submit = () => {
                     id="password_confirmation"
                     v-model="form.password_confirmation"
                     type="password"
-                    class="mt-1 block w-full"
                     required
                     autocomplete="new-password"
                     :class="{'is-invalid':!!form.errors.password_confirmation}"
                 />
-                <Feedback type="invalid" class="mt-2" :message="form.errors.password_confirmation"/>
+                <Feedback type="invalid" :message="form.errors.password_confirmation"/>
             </FormGroup>
 
             <Button variant="primary" type="submit" :class="{ 'opacity-25': form.processing }"

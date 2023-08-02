@@ -1,10 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import SectionTitle from './SectionTitle.vue';
+import {Col, Row} from "@wovosoft/wovoui";
 </script>
 
 <template>
-    <div class="row">
-        <SectionTitle class="col-md-6 col-sm-12">
+    <Row class="row">
+        <SectionTitle>
             <template #title>
                 <slot name="title"/>
             </template>
@@ -13,10 +14,10 @@ import SectionTitle from './SectionTitle.vue';
             </template>
         </SectionTitle>
 
-        <div class="col-md-6 col-sm-12">
+        <Col :md="6" :sm="12">
             <div class="px-4 py-5 sm:p-6 bg-white shadow sm:rounded-lg">
                 <slot name="content"/>
             </div>
-        </div>
-    </div>
+        </Col>
+    </Row>
 </template>

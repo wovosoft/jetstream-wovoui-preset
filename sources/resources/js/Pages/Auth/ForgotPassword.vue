@@ -4,10 +4,11 @@ import AuthenticationCard from '@/Components/Basic/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/Basic/AuthenticationCardLogo.vue';
 import {Button, Feedback, FormGroup, Input} from "@wovosoft/wovoui";
 import route from "ziggy-js";
+import {PropType} from "vue";
 
 
 defineProps({
-    status: String,
+    status: String as PropType<string>,
 });
 
 const form = useForm({
@@ -22,12 +23,12 @@ const submit = () => {
 <template>
     <Head title="Forgot Password"/>
 
-    <AuthenticationCard>
+    <AuthenticationCard title="Forgot Password">
         <template #logo>
             <AuthenticationCardLogo/>
         </template>
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="mb-4 text-sm text-secondary">
             Forgot your password? No problem. Just let us know your email address and we will email you a password reset
             link that will allow you to choose a new one.
         </div>
@@ -44,7 +45,6 @@ const submit = () => {
                     :class="{'is-invalid':!!form.errors.email}"
                     v-model="form.email"
                     type="email"
-                    class="mt-1 block w-full"
                     required
                     autofocus
                 />

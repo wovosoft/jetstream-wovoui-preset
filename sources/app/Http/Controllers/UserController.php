@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ColorVariants;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Office;
 use App\Models\Role;
 use App\Models\User;
 use App\Static\Permissions;
@@ -65,6 +66,13 @@ class UserController extends Controller
 
     public function index(Request $request): Response
     {
+        $office = null;
+        if (is_numeric($request->input('query')) && str($request->input('query'))->length() === 4) {
+            $office = Office::query()
+                ->where('code', '=', $request->input('query'))
+                ->select('id')
+                ->first();
+        }
 
         $items = User::query()
             ->when($request->input('query'), function (Builder $builder, string $query) {

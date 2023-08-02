@@ -29,7 +29,7 @@ const submit = () => {
 <template>
     <Head title="Log in"/>
 
-    <AuthenticationCard>
+    <AuthenticationCard title="Login">
         <template #logo>
             <AuthenticationCardLogo/>
         </template>
@@ -46,7 +46,6 @@ const submit = () => {
                     type="email"
                     placeholder="Your Branch Email"
                     :class="{'is-invalid':!!form.errors.email}"
-                    class="mt-1 block w-full"
                     required
                     autofocus
                 />
@@ -60,7 +59,6 @@ const submit = () => {
                     :class="{'is-invalid':!!form.errors.password}"
                     type="password"
                     placeholder="Your Password"
-                    class="mt-1 block w-full"
                     required
                     autocomplete="current-password"
                 />
@@ -77,7 +75,7 @@ const submit = () => {
                 <Link v-if="canResetPassword" :href="route('password.request')" class="text-sm text-decoration-none">
                     Forgot your password?
                 </Link>
-                <Link v-if="route().has('register')" :href="route('register')" class="text-decoration-none">
+                <Link v-if="route().has('register')" :href="route('register')" class="text-decoration-none ms-3">
                     New User?
                 </Link>
                 <FlexItem class="ms-auto">

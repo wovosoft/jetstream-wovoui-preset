@@ -1,16 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 import {Head} from '@inertiajs/vue3';
 import {Container} from "@wovosoft/wovoui";
+import {PropType} from "vue";
 
 defineProps({
     mustVerifyEmail: {
-        type: Boolean,
+        type: Boolean as PropType<boolean>,
     },
     status: {
-        type: String,
+        type: String as PropType<string>,
     },
 });
 </script>

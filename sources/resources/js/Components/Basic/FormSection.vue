@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed, useSlots} from 'vue';
 import SectionTitle from './SectionTitle.vue';
-import {Card} from "@wovosoft/wovoui";
+import {Card, Col, Row} from "@wovosoft/wovoui";
 
 defineEmits(['submitted']);
 
@@ -9,8 +9,8 @@ const hasActions = computed(() => !!useSlots().actions);
 </script>
 
 <template>
-    <div class="row">
-        <SectionTitle class="col-md-6 col-sm-12">
+    <Row>
+        <SectionTitle>
             <template #title>
                 <slot name="title"/>
             </template>
@@ -19,7 +19,7 @@ const hasActions = computed(() => !!useSlots().actions);
             </template>
         </SectionTitle>
 
-        <div class="col-md-6 col-sm-12">
+        <Col :md="6" :sm="12">
             <form @submit.prevent="$emit('submitted')">
                 <Card footer-class="bg-transparent" class="shadow rounded-0 border-0">
                     <slot name="form"/>
@@ -30,6 +30,6 @@ const hasActions = computed(() => !!useSlots().actions);
                     </template>
                 </Card>
             </form>
-        </div>
-    </div>
+        </Col>
+    </Row>
 </template>

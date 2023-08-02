@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed} from 'vue';
+import {computed, PropType} from 'vue';
 import {Head, Link, useForm} from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/Basic/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/Basic/AuthenticationCardLogo.vue';
@@ -7,7 +7,7 @@ import route from "ziggy-js";
 import {Button} from "@wovosoft/wovoui";
 
 const props = defineProps({
-    status: String,
+    status: String as PropType<string>,
 });
 
 const form = useForm({});
@@ -16,18 +16,18 @@ const submit = () => {
     form.post(route('verification.send'));
 };
 
-const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
+const verificationLinkSent = computed<boolean>(() => props.status === 'verification-link-sent');
 </script>
 
 <template>
     <Head title="Email Verification"/>
 
-    <AuthenticationCard>
+    <AuthenticationCard title="Verify Email">
         <template #logo>
             <AuthenticationCardLogo/>
         </template>
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="mb-4 text-sm text-secondary">
             Before continuing, could you verify your email address by clicking on the link we just emailed to you? If
             you didn't receive the email, we will gladly send you another.
         </div>

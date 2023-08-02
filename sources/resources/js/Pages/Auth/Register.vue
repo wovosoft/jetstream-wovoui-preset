@@ -23,7 +23,7 @@ const submit = () => {
 <template>
     <Head title="Register"/>
 
-    <AuthenticationCard>
+    <AuthenticationCard title="Register">
         <template #logo>
             <AuthenticationCardLogo/>
         </template>
@@ -35,7 +35,6 @@ const submit = () => {
                     placeholder="Your Full Name"
                     v-model="form.name"
                     type="text"
-                    class="mt-1 block w-full"
                     required
                     autofocus
                     :class="{'is-invalid':!!form.errors.name}"
@@ -51,7 +50,6 @@ const submit = () => {
                     v-model="form.email"
                     type="email"
                     :class="{'is-invalid':!!form.errors.email}"
-                    class="mt-1 block w-full"
                     required
                 />
                 <Feedback type="invalid" :message="form.errors.email"/>
@@ -63,7 +61,6 @@ const submit = () => {
                     id="password"
                     v-model="form.password"
                     type="password"
-                    class="mt-1 block w-full"
                     required
                     :class="{'is-invalid':!!form.errors.password}"
                     autocomplete="new-password"
@@ -77,7 +74,6 @@ const submit = () => {
                     id="password_confirmation"
                     v-model="form.password_confirmation"
                     type="password"
-                    class="mt-1 block w-full"
                     required
                     :class="{'is-invalid':!!form.errors.password_confirmation}"
                     autocomplete="new-password"

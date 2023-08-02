@@ -6,7 +6,7 @@ import {Card, Container} from "@wovosoft/wovoui";
 <template>
     <Head title="Dashboard"/>
 
-    <Container class="py-12">
+    <Container class="mt-3">
         <Card>
             {{$page.props?.auth?.user?.permissions}}
         </Card>

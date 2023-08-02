@@ -1,10 +1,10 @@
-<script setup>
-import {computed} from 'vue';
+<script setup lang="ts">
+import {computed, PropType} from 'vue';
 import {Link} from '@inertiajs/vue3';
 
 const props = defineProps({
-    href: String,
-    active: Boolean,
+    href: String as PropType<string>,
+    active: Boolean as PropType<boolean>,
 });
 
 const classes = computed(() => {

@@ -10,14 +10,14 @@ const form = useForm({
     password: '',
 });
 
-const passwordInput = ref(null);
+const passwordInput = ref<InstanceType<typeof Input>>(null);
 
 const submit = () => {
     form.post(route('password.confirm'), {
         onFinish: () => {
             form.reset();
 
-            passwordInput.value.focus();
+            passwordInput.value?.$el.focus();
         },
     });
 };
@@ -26,7 +26,7 @@ const submit = () => {
 <template>
     <Head title="Secure Area"/>
 
-    <AuthenticationCard>
+    <AuthenticationCard title="Confirm Password">
         <template #logo>
             <AuthenticationCardLogo/>
         </template>
@@ -42,7 +42,6 @@ const submit = () => {
                     ref="passwordInput"
                     v-model="form.password"
                     type="password"
-                    class="mt-1 block w-full"
                     required
                     autocomplete="current-password"
                     autofocus
