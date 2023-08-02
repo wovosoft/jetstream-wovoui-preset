@@ -2,8 +2,8 @@
 
 namespace Wovosoft\JetstreamWovouiPreset\Console\Commands;
 
-use File;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 
 class InstallWovoui extends Command
 {
@@ -12,7 +12,7 @@ class InstallWovoui extends Command
      *
      * @var string
      */
-    protected $signature = 'app:install-wovoui';
+    protected $signature = 'jetstream-wovoui:install';
 
     /**
      * The console command description.
@@ -24,7 +24,7 @@ class InstallWovoui extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         $sourcePath = __DIR__ . "/../../../sources/";
 
