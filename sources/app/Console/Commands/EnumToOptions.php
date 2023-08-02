@@ -31,6 +31,7 @@ class EnumToOptions extends Command
 
     /**
      * Execute the console command.
+     * @throws \ReflectionException
      */
     public function handle(): int
     {
@@ -40,7 +41,8 @@ class EnumToOptions extends Command
 
         $enums = ClassFinder::in("App\\Enums", "Enums");
         $enums->each(function (string $enum) {
-            File::put(resource_path("js/Options/" . basename($enum) . ".ts"), $this->generateOptions($enum));
+            $reflection = new \ReflectionEnum($enum);
+            File::put(resource_path("js/Options/" . $reflection->getShortName() . ".ts"), $this->generateOptions($enum));
         });
 
         File::put(resource_path("js/Options/index.ts"), join("\n", $this->exports));
@@ -60,7 +62,7 @@ class EnumToOptions extends Command
 
         $method = str('get' . str($reflection->getShortName())->ucfirst()->singular())->value();
 
-        $this->exports[] = 'export {' . $name . ', ' . $method . '} from "@/Options/' . $reflection->getShortName() . "\";";
+        $this->exports[] = 'export {' . $name . ', ' . $method . '} from "./' . $reflection->getShortName() . "\";";
 
         return <<<ts
 import {Option} from "@/Options";
