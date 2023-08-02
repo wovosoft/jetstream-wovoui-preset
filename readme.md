@@ -1,47 +1,43 @@
-# JetstreamWovouiPreset
+# Jetstream Wovoui Preset
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
-
 ## Before Installation
 
-Install Jetstream with inertia
+Install Jetstream with inertia and follow the instruction described in jetstream's documentation.
 
 ## Installation
 
 Via Composer
 
-``` bash
-$ composer require wovosoft/jetstream-wovoui-preset
+```shell
+composer require wovosoft/jetstream-wovoui-preset --dev
 ```
 
-## Usage
+## After Installation
 
-## Change log
+```shell
+npm install
+```
 
-Please see the [changelog](changelog.md) for more information on what has changed recently.
+## For Laravel Models to Typescript Types/Interfaces
 
-## Testing
+```shell
+composer require wovosoft/laravel-typescript --dev
+php artisan app:generate-types
 
-``` bash
-$ composer test
 ```
 
 ## Contributing
 
 Please see [contributing.md](contributing.md) for details and a todolist.
 
-## Security
-
-If you discover any security related issues, please email author@email.com instead of using the issue tracker.
-
 ## Credits
 
-- [Author Name][link-author]
+- [Narayan Adhikary][link-author]
 - [All Contributors][link-contributors]
 
 ## License
