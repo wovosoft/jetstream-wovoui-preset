@@ -27,7 +27,7 @@ class EnumToOptions extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Publishes Enums to JavaScript {text,value}[] format array';
 
     /**
      * Execute the console command.
@@ -39,13 +39,26 @@ class EnumToOptions extends Command
             File::makeDirectory(resource_path("js/Options"), 0777, true, true);
         }
 
-        $enums = ClassFinder::in("App\\Enums", "Enums");
-        $enums->each(function (string $enum) {
+
+        $enums = [];
+        collect([
+            app_path('Enums'),
+            base_path('packages/wovosoft/hrms-person/src/Enums')
+        ])->each(function (string $path) use (&$enums) {
+            $enums = [
+                ...$enums,
+                ...ClassFinder::in($path)->toArray()
+            ];
+        });
+
+        collect($enums)->each(function (string $enum) {
             $reflection = new \ReflectionEnum($enum);
             File::put(resource_path("js/Options/" . $reflection->getShortName() . ".ts"), $this->generateOptions($enum));
         });
 
         File::put(resource_path("js/Options/index.ts"), join("\n", $this->exports));
+
+
         $this->info("Successfully Generated");
         return 0;
     }

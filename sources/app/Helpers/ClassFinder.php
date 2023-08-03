@@ -2,18 +2,17 @@
 
 namespace App\Helpers;
 
+use Composer\ClassMapGenerator\ClassMapGenerator;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 
 class ClassFinder
 {
-    public static function in(string $namespace, string $directory): Collection
+    public static function in(string $directory): Collection
     {
-        $classes = collect([]);
+        /**
+         * @link https://github.com/composer/class-map-generator
+         */
 
-        foreach (File::allFiles(app_path($directory)) as $file) {
-            $classes->add($namespace . '\\' . \str($file->getRelativePathname())->replaceLast('.php', ''));
-        }
-        return $classes;
+        return collect(array_keys(ClassMapGenerator::createMap($directory)));
     }
 }
