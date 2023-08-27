@@ -4,6 +4,7 @@ namespace Wovosoft\JetstreamWovouiPreset;
 
 use Illuminate\Support\ServiceProvider;
 use Wovosoft\JetstreamWovouiPreset\Console\Commands\InstallWovoui;
+use Wovosoft\LaravelPermissions\LaravelPermissions;
 
 class JetstreamWovouiPresetServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class JetstreamWovouiPresetServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        LaravelPermissions::register();
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'wovosoft');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'wovosoft');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -35,9 +37,9 @@ class JetstreamWovouiPresetServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/jetstream-wovoui-preset.php', 'jetstream-wovoui-preset');
 
         // Register the service the package provides.
-        $this->app->singleton('jetstream-wovoui-preset', function ($app) {
-            return new JetstreamWovouiPreset;
-        });
+//        $this->app->singleton('jetstream-wovoui-preset', function ($app) {
+//            return new JetstreamWovouiPreset;
+//        });
     }
 
     /**
